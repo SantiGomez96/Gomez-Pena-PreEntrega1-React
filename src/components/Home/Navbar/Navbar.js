@@ -1,17 +1,29 @@
-import "./Navbar.css";
+import { useContext } from "react";
+import { dataContext } from "../../Context/DataContext";
+
 import {Link} from "react-router-dom";
+
+import TotalItems from "../../CartContent/TotalItems";
+
+import "./Navbar.css";
+
 const Navbar = () => {
+  const { cart } = useContext(dataContext);
   return (
     <div className='nav-container'>
         <nav className='navbar'>
-          <img className='navbar-logo' src='../public/LogosAdor/LOGO ADOR' alt='Logo Ador'></img>
-          <a>EARCUFFS Y CANDONGAS</a>
-          <a>CADENAS</a>
-          <a>PULSERAS</a>
-          <Link className='seeCarrito' to = {"/cart"}>🛒</Link>
+          <Link to={"/"}>
+            <img className='navbar-logo' src='../public/LogosAdor/LOGO ADOR' alt='Logo Ador'></img>
+          </Link>
+          <button>EARCUFFS Y CANDONGAS</button>
+          <button>CADENAS</button>
+          <button>PULSERAS</button>
+          <Link className='seeCarrito' to = {"/cart"}>🛒
+          {cart.length > 0 ? <TotalItems /> : null}
+          </Link>
         </nav>
     </div>
   );
 };
 
-export default Navbar
+export default Navbar;

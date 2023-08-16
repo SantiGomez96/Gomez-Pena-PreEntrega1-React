@@ -19,3 +19,14 @@
     text-align: center;
     margin-top: 40px;
 }
+
+/*counter-button*/
+.counter-button {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/*delete-button*/
+.cart-delete-button{
+    cursor: pointer;
+}
